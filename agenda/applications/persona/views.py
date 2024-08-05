@@ -1,0 +1,78 @@
+from django.shortcuts import render
+from django.views.generic import ListView, TemplateView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView
+# MODELOS
+from .models import Person, Reunion
+#Serializadores
+from .serializers import PersonSerializer,PersonaSerializer,PersonaSerializer3, ReunionSeriealizer
+
+
+class ListaPersonas(ListView):
+    template_name = 'persona/personas.html'
+    context_object_name = 'personas'
+    
+    def get_queryset(self):
+        return Person.objects.all()
+
+
+class PersonListApiView(ListAPIView):
+
+    serializer_class = PersonSerializer
+
+    def get_queryset(self):
+        return Person.objects.all()
+
+class PersonListView(ListView):
+    model = Person
+    template_name = 'persona/lista.html'
+    context_object_name = 'listaPersonas'
+
+class PersonSearchApiView(ListAPIView):
+    serializer_class = PersonSerializer
+
+    def get_queryset(self):
+        kword = self.kwargs['kword']
+        return Person.objects.filter(
+            full_name__icontains=kword
+        )
+
+# Creacion
+class PersonCreateView(CreateAPIView):
+    serializer_class = PersonSerializer
+
+# Detalles
+class PersonDetailView(RetrieveAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+
+# Modificar
+class PersonUpdateView(UpdateAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+
+# Recupera y modifica
+class PersonRetrieveUpdateView(RetrieveUpdateAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+# Eliminar
+class PersonDeleteView(DestroyAPIView):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+
+
+class PersonApiLista(ListAPIView):
+    # serializer_class = PersonaSerializer
+    serializer_class = PersonaSerializer3
+    def get_queryset(self):
+        return Person.objects.all()
+
+
+
+class ReunionApiLista(ListAPIView):
+
+    serializer_class = ReunionSeriealizer
+    def get_queryset(self):
+        return Reunion.objects.all()
