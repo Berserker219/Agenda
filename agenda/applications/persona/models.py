@@ -50,7 +50,7 @@ class Person(TimeStampedModel):
 
 class Reunion(TimeStampedModel):
     persona = models.ForeignKey(Person, on_delete=models.CASCADE)
-    fecha = models.TimeField()
+    fecha = models.DateField()
     asunto = models.CharField(max_length=100)
 
     class Meta:

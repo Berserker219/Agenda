@@ -4,8 +4,15 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 # MODELOS
 from .models import Person, Reunion
 #Serializadores
-from .serializers import PersonSerializer,PersonaSerializer,PersonaSerializer3, ReunionSeriealizer
+from .serializers import (
+    PersonSerializer,
+    PersonaSerializer,
+    PersonaSerializer3,
+    ReunionSeriealizer,
+    ReunionSeriealizerLink,
+    PersonPagination,
 
+)
 
 class ListaPersonas(ListView):
     template_name = 'persona/personas.html'
@@ -76,3 +83,20 @@ class ReunionApiLista(ListAPIView):
     serializer_class = ReunionSeriealizer
     def get_queryset(self):
         return Reunion.objects.all()
+
+
+class ReunionApiListaLink(ListAPIView):
+
+    serializer_class = ReunionSeriealizerLink
+    def get_queryset(self):
+        return Reunion.objects.all()
+
+
+class PersonPaginationLista(ListAPIView):
+    # Lista con paginación
+    
+    serializer_class = PersonaSerializer
+    pagination_class = PersonPagination
+
+    def get_queryset(self):
+        return Person.objects.all()
