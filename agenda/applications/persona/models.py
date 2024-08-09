@@ -2,7 +2,7 @@
 from model_utils.models import TimeStampedModel
 #
 from django.db import models
-
+from .managers import ReunionManager
 #
 
 class Hobby(TimeStampedModel):
@@ -52,6 +52,7 @@ class Reunion(TimeStampedModel):
     persona = models.ForeignKey(Person, on_delete=models.CASCADE)
     fecha = models.DateField()
     asunto = models.CharField(max_length=100)
+    objects = ReunionManager()
 
     class Meta:
         verbose_name = 'Reunion'

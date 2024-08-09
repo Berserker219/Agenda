@@ -82,3 +82,8 @@ class ReunionSeriealizerLink(serializers.HyperlinkedModelSerializer):
 class PersonPagination(pagination.PageNumberPagination):
     page_size = 5
     max_page_size = 100
+
+
+class CountReunionSerializer(serializers.Serializer):
+    persona__job = serializers.CharField()
+    cantidad = serializers.IntegerField()
