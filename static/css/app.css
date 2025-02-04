@@ -1,0 +1,248 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    margin-bottom: 10px;
+  }
+  
+  .card-header h2 {
+    margin: 0;
+  }
+  
+  .card-content {
+    padding: 10px 0;
+    justify-content: space-between ;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .calendar-header {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .calendar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 30px;
+  }
+  
+  .event {
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  .event > div {
+    flex: 1; /* Cada elemento toma una parte igual del espacio disponible */
+    text-align: center; /* Centra el texto en cada elemento */
+  }
+  .event-title {
+    flex: 1; /* Ajusta el tamaño según sea necesario */
+    margin-right: 10px;
+  }
+  
+  .event-date {
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .event-person {
+    flex: 1;
+    text-align: right;
+  }
+  
+  /* Estilos del calendario */
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .calendar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 30px;
+  }
+  
+  .calendar button:hover {
+    background-color: #0056b3;
+  }
+  
+  .calendar .days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .calendar .days-of-week div {
+    font-weight: bold;
+    padding: 5px 0;
+  }
+  
+  .calendar #days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .calendar #days button {
+    background-color: #f4f4f9;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .calendar #days button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Estilos de la gestión de contactos */
+  .contact-manager input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-manager button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .contact-manager button:hover {
+    background-color: #0056b3;
+  }
+  
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contact p {
+    margin: 0;
+  }
+  
+  .contact button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact button:hover {
+    background-color: #c82333;
+  }
+  
+  /* .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+   */

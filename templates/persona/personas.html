@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block content %}
+<div class="container">
+  <h1 class="title">Mi Agenda</h1>
+  <div class="tabs">
+    <button class="tab-button" onclick="showTab('calendar')">Calendario</button>
+    <button class="tab-button" onclick="showTab('contacts')">Contactos</button>
+  </div>
+  <div id="calendar" class="tab-content">
+    <div class="card">
+      <div class="card-header">
+        <h2>Calendario</h2>
+        <p>Vista mensual de tus eventos</p>
+      </div>
+      <div class="card-content">
+        <div class="calendar">
+          <div class="calendar-header"> 
+            <button onclick="prevMonth()">&#9664;</button>
+            <span id="current-month"></span>
+            <button onclick="nextMonth()">&#9654;</button>
+          </div>
+          <div class="days-of-week">
+            <div>Dom</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+          </div>
+          <div id="days"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Próximos Eventos</h2>
+        <p>Lista de tus próximos eventos</p>
+      </div>
+      <div class="card-content" id="event-list-component">
+
+      </div>
+    </div>
+  </div>
+  <div id="contacts" class="tab-content" style="display: none;">
+    <div class="card">
+      <div class="card-header">
+        <h2>Gestión de Contactos</h2>
+        <p>Añade, busca, muestra y elimina contactos</p>
+      </div>
+      <div class="card-content">
+        <div class="contact-manager">
+          <input type="text" id="contact-name" placeholder="Nombre del contacto">
+          <input type="text" id="contact-job" placeholder="Trabajo del contacto">
+          <input type="email" id="contact-email" placeholder="Email del contacto">
+          <input type="tel" id="contact-phone" placeholder="Teléfono del contacto">
+          <input type="text" id="contact-hobbies" placeholder="Hobbies del contacto (separados por comas)">
+          <button onclick="addContact()">Añadir Contacto</button>
+          
+        </div>
+        <div class="contact-manager">
+          <input type="text" id="search-term" placeholder="Buscar contacto">
+          <button onclick="searchContact()">Buscar</button>
+          <button onclick="fetchContacts()">Cargar contactos</button>
+        </div>
+        <div id="contact-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
